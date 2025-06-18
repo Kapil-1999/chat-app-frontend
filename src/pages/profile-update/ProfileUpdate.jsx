@@ -10,8 +10,8 @@ const ProfileUpdate = () => {
   const [image, setImage] = useState(false);
   const navigate = useNavigate();
   const [profileUpdate, setProfileUpdate] = useState({
-    fullName: '',
-    bio: "",
+    fullName: authUser?.fullName || '',
+    bio: authUser?.bio || '',
   });
 
 
@@ -31,6 +31,7 @@ const ProfileUpdate = () => {
 
     if (image) {
       formData.append('profilePic', image);
+
     }
     await updateProfile(formData);
     navigate("/chat")

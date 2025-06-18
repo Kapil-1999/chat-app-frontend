@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './RightSidebar.css';
 import assets from '../../assets/assets';
+import { AuthContext } from '../../context/AuthContext';
 
 const RightSidebar = () => {
+  const { authUser , logout } = useContext(AuthContext);
+
+    const handleLogout = async () => {
+        await logout();
+    }
+  
   return (
     <div className='rs'>
       <div className="rs-profile">
-        <img className='' src={assets.profile_img} alt="" />
-        <h3>Kapil Singh Pilkhwal <img className='dot' src={assets.green_dot} alt="" /></h3>
-        <p>Hey, There i am Kapil Singh Pilkhwal using chat app</p>
+        <img className='' src={authUser?.profilePic || assets.avatar_icon} alt="" /> 
+        <h3>{authUser?.fullName} <img className='dot' src={assets.green_dot} alt="" /></h3>
+        <p>{authUser?.bio}</p>
       </div>
       <hr />
       <div className="rs-media">
@@ -22,7 +29,7 @@ const RightSidebar = () => {
           <img src={assets.pic2} alt="" />
         </div>
       </div>
-      <button className='btn btn-danger'>Logout</button>
+      <button className='btn btn-danger' onClick={handleLogout}>Logout</button>
 
     </div>
   )

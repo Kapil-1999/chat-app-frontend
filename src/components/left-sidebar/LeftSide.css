@@ -44,7 +44,6 @@
 .ls-list{
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 70%);
     overflow-y: scroll;
 }
 
@@ -76,4 +75,45 @@
 
 .menu:hover .sub-menu {
     display: block;
+}
+
+.online-status {
+    color: green !important;
+    font-weight: 700;
+    font-size: 10px !important;
+}
+
+.offline-status {
+    color: gray;
+    font-size: small;
+}
+
+.friends {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.friends img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.friend-info {
+    flex: 1;
+}
+
+.unseen-badge {
+    background: rgb(93, 0, 255);
+    color: white;
+    font-size: 10px;
+    border-radius: 50%;
+    padding: 4px 8px;
+    min-width: 24px;
+    text-align: center;
 }
